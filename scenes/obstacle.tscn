@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dwsevu4sb6qwd"]
+
+[ext_resource type="Texture2D" uid="uid://bybte63ex2q82" path="res://assets/sprites/pipe-green.png" id="1_7ukg5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ukg5"]
+size = Vector2(52, 319)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drdry"]
+size = Vector2(52, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjuko"]
+size = Vector2(52, 319)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sh7k1"]
+size = Vector2(52, 320)
+
+[node name="Obstacle" type="Node2D" unique_id=5612353]
+
+[node name="PipeBottom" type="AnimatableBody2D" parent="." unique_id=1217126631]
+position = Vector2(0, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeBottom" unique_id=1868722283]
+shape = SubResource("RectangleShape2D_7ukg5")
+
+[node name="Area2D" type="Area2D" parent="PipeBottom" unique_id=1917745850]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeBottom/Area2D" unique_id=1586495826]
+shape = SubResource("RectangleShape2D_drdry")
+
+[node name="TextureRect" type="TextureRect" parent="PipeBottom" unique_id=1638946677]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -160.0
+offset_right = 26.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7ukg5")
+
+[node name="PipeTop" type="AnimatableBody2D" parent="." unique_id=2049513902]
+position = Vector2(0, -200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeTop" unique_id=809280157]
+shape = SubResource("RectangleShape2D_cjuko")
+
+[node name="Area2D" type="Area2D" parent="PipeTop" unique_id=1830534564]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeTop/Area2D" unique_id=1390097858]
+shape = SubResource("RectangleShape2D_sh7k1")
+
+[node name="TextureRect" type="TextureRect" parent="PipeTop" unique_id=142279533]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -160.0
+offset_right = 26.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7ukg5")
+flip_v = true
