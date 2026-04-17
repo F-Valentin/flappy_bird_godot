@@ -1,55 +1,56 @@
 [gd_scene format=3 uid="uid://dwsevu4sb6qwd"]
 
-[ext_resource type="Texture2D" uid="uid://bybte63ex2q82" path="res://assets/sprites/pipe-green.png" id="1_7ukg5"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ukg5"]
-size = Vector2(52, 319)
+[ext_resource type="Script" uid="uid://bvw688bmt8de1" path="res://scripts/obstacle.gd" id="1_drdry"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drdry"]
 size = Vector2(52, 320)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjuko"]
-size = Vector2(52, 319)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7ukg5"]
+load_path = "res://.godot/imported/pipe-green.png-4c9d865a7607adc879eab71004c10272.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4xvc"]
+size = Vector2(10, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh7k1"]
 size = Vector2(52, 320)
 
-[node name="Obstacle" type="Node2D" unique_id=5612353]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_drdry"]
+load_path = "res://.godot/imported/pipe-green.png-4c9d865a7607adc879eab71004c10272.ctex"
 
-[node name="PipeBottom" type="AnimatableBody2D" parent="." unique_id=1217126631]
-position = Vector2(0, 200)
+[node name="Obstacle" type="Node2D" unique_id=5612353 groups=["obstacles"]]
+script = ExtResource("1_drdry")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeBottom" unique_id=1868722283]
-shape = SubResource("RectangleShape2D_7ukg5")
+[node name="PipeBottom" type="Area2D" parent="." unique_id=1917745850]
+position = Vector2(0, 204)
 
-[node name="Area2D" type="Area2D" parent="PipeBottom" unique_id=1917745850]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeBottom/Area2D" unique_id=1586495826]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeBottom" unique_id=1586495826]
 shape = SubResource("RectangleShape2D_drdry")
 
-[node name="TextureRect" type="TextureRect" parent="PipeBottom" unique_id=1638946677]
+[node name="TextureRect" type="TextureRect" parent="PipeBottom" unique_id=1997816580]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -26.0
-offset_top = -160.0
-offset_right = 26.0
-offset_bottom = 160.0
+offset_left = -24.0
+offset_top = -163.0
+offset_right = 28.0
+offset_bottom = 157.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_7ukg5")
+texture = SubResource("CompressedTexture2D_7ukg5")
 
-[node name="PipeTop" type="AnimatableBody2D" parent="." unique_id=2049513902]
-position = Vector2(0, -200)
+[node name="ScoreArea" type="Area2D" parent="." unique_id=1465820040]
+position = Vector2(20, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeTop" unique_id=809280157]
-shape = SubResource("RectangleShape2D_cjuko")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea" unique_id=89392780]
+shape = SubResource("RectangleShape2D_i4xvc")
 
-[node name="Area2D" type="Area2D" parent="PipeTop" unique_id=1830534564]
+[node name="PipeTop" type="Area2D" parent="." unique_id=1830534564]
+position = Vector2(0, -400)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeTop/Area2D" unique_id=1390097858]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeTop" unique_id=1390097858]
+position = Vector2(-1, 194)
 shape = SubResource("RectangleShape2D_sh7k1")
 
 [node name="TextureRect" type="TextureRect" parent="PipeTop" unique_id=142279533]
@@ -58,11 +59,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -26.0
-offset_top = -160.0
-offset_right = 26.0
-offset_bottom = 160.0
+offset_left = -25.0
+offset_top = -344.0
+offset_right = 27.0
+offset_bottom = 356.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_7ukg5")
+texture = SubResource("CompressedTexture2D_drdry")
 flip_v = true
+
+[connection signal="body_entered" from="PipeBottom" to="." method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]
+[connection signal="body_entered" from="PipeTop" to="." method="_on_pipe_body_entered"]
