@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://m1m0g7ss82lm"]
+
+[ext_resource type="Texture2D" uid="uid://bpb2pyiw66u7i" path="res://assets/sprites/gameover.png" id="1_8qc2k"]
+[ext_resource type="Script" uid="uid://dhagyhlr5h8lt" path="res://scripts/game_over_sreen.gd" id="1_orlvp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_orlvp"]
+font_size = 48
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ad4bq"]
+font_size = 48
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameOverSreen" type="Control" unique_id=365676604]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_orlvp")
+
+[node name="Panel" type="Panel" parent="." unique_id=1864463819]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -292.0
+offset_right = 150.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1277925450]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -176.0
+offset_right = 119.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="GameOverTexture" type="TextureRect" parent="Panel/VBoxContainer" unique_id=495391384]
+layout_mode = 2
+texture = ExtResource("1_8qc2k")
+
+[node name="ScoreLabel" type="Label" parent="Panel/VBoxContainer" unique_id=896373310]
+layout_mode = 2
+text = "Score: 999"
+label_settings = SubResource("LabelSettings_orlvp")
+horizontal_alignment = 1
+
+[node name="HighScoreLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1891791837]
+layout_mode = 2
+text = "Best: 999"
+label_settings = SubResource("LabelSettings_ad4bq")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer" unique_id=291623522]
+layout_mode = 2
+
+[node name="RetryButton" type="Button" parent="Panel/VBoxContainer/Control" unique_id=403837455]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 12.0
+offset_right = 75.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 49
+text = "RETRY"
+
+[connection signal="button_down" from="Panel/VBoxContainer/Control/RetryButton" to="." method="_on_retry_button_button_down"]

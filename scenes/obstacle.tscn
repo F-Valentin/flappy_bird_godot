@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bvw688bmt8de1" path="res://scripts/obstacle.gd" id="1_drdry"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drdry"]
-size = Vector2(52, 320)
+size = Vector2(48, 317)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7ukg5"]
 load_path = "res://.godot/imported/pipe-green.png-4c9d865a7607adc879eab71004c10272.ctex"
@@ -12,7 +12,7 @@ load_path = "res://.godot/imported/pipe-green.png-4c9d865a7607adc879eab71004c102
 size = Vector2(10, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh7k1"]
-size = Vector2(52, 320)
+size = Vector2(49, 315)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_drdry"]
 load_path = "res://.godot/imported/pipe-green.png-4c9d865a7607adc879eab71004c10272.ctex"
@@ -24,6 +24,7 @@ script = ExtResource("1_drdry")
 position = Vector2(0, 204)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PipeBottom" unique_id=1586495826]
+position = Vector2(2, 1.5)
 shape = SubResource("RectangleShape2D_drdry")
 
 [node name="TextureRect" type="TextureRect" parent="PipeBottom" unique_id=1997816580]
@@ -50,7 +51,7 @@ shape = SubResource("RectangleShape2D_i4xvc")
 position = Vector2(0, -400)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PipeTop" unique_id=1390097858]
-position = Vector2(-1, 194)
+position = Vector2(0.5, 191.5)
 shape = SubResource("RectangleShape2D_sh7k1")
 
 [node name="TextureRect" type="TextureRect" parent="PipeTop" unique_id=142279533]
